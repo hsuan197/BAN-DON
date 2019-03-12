@@ -1,0 +1,191 @@
+body{
+    display: block;
+    position: absolute;
+    background-color: #BD2E32;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+    left: 0%;
+    top: 0%;
+    overflow: hidden;
+}
+
+h1{
+    position: relative;
+    color: #FFDE98;
+    font-size: 4rem;
+    margin: 0%;
+    
+}
+div{
+    position: absolute;
+    color: #FFDE98;
+    font-size: 1rem;
+    left: 10%;
+    top: 10%;
+    width: 50%;
+    vertical-align: middle;
+}
+
+h2{
+    position: relative;
+    color: #FFDE98;
+    font-size: 1rem;
+    writing-mode: horizontal-tb;
+    margin: 0%;
+}
+
+img{
+    position: absolute;
+    margin: 0%;
+}
+
+.table{
+    width: 100%;
+    bottom: 0%;
+}
+
+.chair{
+    width: 12%;
+}
+
+#chair_1{
+    left: -5%;
+    top: 45%;    
+}
+
+#chair_2{
+    left: 7%;
+    width: 13%;
+    top: 17%;    
+}
+
+#chair_3{
+    left: 23%;
+    width: 11%;
+    top: 8%;    
+}
+
+#chair_4{
+    left: 40%;
+    top: 3%;    
+}
+#chair_5{
+    left: 56%;
+    top: 5%;    
+}
+#chair_6{
+    left: 74%;
+    top: 14%;    
+}
+#chair_7{
+    left: 90%;
+    width: 14%;
+    top: 35%;    
+}
+
+a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0%;
+}
+
+#panel{
+    width: 100vw;
+    height: 55vw;
+    left: -30vw;
+    bottom: -20vw;
+}
+
+#panel b{
+    display: none;
+    opacity: 0;
+}
+
+#food{
+    width: 36%;
+    left: 32%;
+    bottom: 6%;
+}
+
+.lrbtn{
+    margin: 0%;
+    width: 10%;
+    bottom: 1%;
+}
+
+#btn_l{
+    left: 25%;
+    transform-origin: 100% 100%;
+}
+
+#btn_r{
+    right: 25%;
+    transform-origin: 0% 100%;
+}
+
+#btn_r:hover{
+    transform:rotate(20deg);  
+}
+
+#btn_l:hover{
+    transform:rotate(340deg);  
+}
+
+#food:hover{
+    left: 30%;
+    width: 40%;
+}
+
+#red{
+    background-color: #BD2E32;
+    opacity: 0;
+    display: none;
+}
+
+#intro_panel{
+    vertical-align: middle;
+    display: none;
+    top: 100%;
+}
+
+#intro_panel img{
+    width: 40%;
+    left: 10%;
+    top: 20%;
+}
+
+#intro_panel div{
+    height: 60%;
+    width: 40%;
+    left: 53%;
+    top: 20%;
+}
+
+#back{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#bandon{
+    display: block;
+    left: 70%;
+    top: 15%;
+    width: 15%;
+}
+
+#bandon h1{
+    writing-mode: vertical-rl;
+    font-size: 8rem;
+}
+
+#bandon h2{
+    text-align: center;
+    font-size: 2rem;
+}
