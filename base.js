@@ -72,20 +72,22 @@ $(document).ready(function(){
             var angle = i * 0.017453293;
             var left = 32 + 30 * Math.cos(angle);
             var bottom = -34 + 40 * Math.sin(angle);
-            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 2);
+            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
         }
 
         theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
             theFood.attr('src',img_path);
+            $("#food").ready(function() {
+                console.log(">???");
+                for(i = 180; i > 90; i--){
+                    var angle = i * 0.017453293;
+                    var left = 32 + 30 * Math.cos(angle);
+                    var bottom = -34 + 40 * Math.sin(angle);
+        
+                    theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
+                }
+            });
         });
-
-        for(i = 180; i > 90; i--){
-            var angle = i * 0.017453293;
-            var left = 32 + 30 * Math.cos(angle);
-            var bottom = -34 + 40 * Math.sin(angle);
-
-            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 2);
-        }
     });
 
     //往左按鍵
@@ -99,17 +101,25 @@ $(document).ready(function(){
             var angle = i * 0.017453293;
             var left = 32 + 30 * Math.cos(angle);
             var bottom = -34 + 40 * Math.sin(angle);
-            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 2);
+            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
         }
         theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
             theFood.attr('src',img_path);
         });
-        for(i = 0; i < 90; i++){
-            var angle = i * 0.017453293;
-            var left = 32 + 30 * Math.cos(angle);
-            var bottom = -34 + 40 * Math.sin(angle);
-            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 2);
-        }
+
+        theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
+            theFood.attr('src',img_path);
+            $("#food").ready(function() {
+                console.log(">???");
+                for(i = 0; i < 90; i++){
+                    var angle = i * 0.017453293;
+                    var left = 32 + 30 * Math.cos(angle);
+                    var bottom = -34 + 40 * Math.sin(angle);
+        
+                    theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
+                }
+            });
+        });
     });
 
     //進入菜色介紹頁面
