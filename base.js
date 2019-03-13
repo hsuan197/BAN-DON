@@ -108,6 +108,10 @@ $(document).ready(function(){
         var img_path = "img/food_btn/" + nowFoodId.toString() + ".png";
         var theFood = $("#food");
 
+        //更換intro
+        $("#intro_panel img").attr('src', "img/food_intro/" + nowFoodId.toString() + ".png");
+        $("#intro_panel div").html(foodHtml[nowFoodId]);
+
         //等到轉出的animate結束再換圖片&轉入
         theFood.animate({left:"2%", bottom:  "-100%"}, 1, ()=>{
             rotateDirection = 1;
@@ -128,6 +132,10 @@ $(document).ready(function(){
         var img_path = "img/food_btn/" + nowFoodId.toString() + ".png";
         var theFood = $("#food");
 
+        //更換intro
+        $("#intro_panel img").attr('src', "img/food_intro/" + nowFoodId.toString() + ".png");
+        $("#intro_panel div").html(foodHtml[nowFoodId]);
+
         //等到轉出的animate結束再換圖片&轉入
         theFood.animate({left:"62%", bottom:  "-100%"}, 1, ()=>{
             rotateDirection = 3;
@@ -139,10 +147,6 @@ $(document).ready(function(){
     $("#food").click(()=>{
         $("#red").css("display","block");
         $("#red").animate({opacity:"0.7"}, 200);
-
-        var img_path = "img/food_intro/" + nowFoodId.toString() + ".png";
-        $("#intro_panel img").attr('src', img_path);
-        $("#intro_panel div").html(foodHtml[nowFoodId]);
 
         $("#intro_panel").css("display","block");
         $("#intro_panel").animate({top:"0%"}, 200);
