@@ -60,7 +60,7 @@ function rotate(){
         nowAngle = nowAngle + loopInc;
         var left = 32 + 30 * Math.cos(nowAngle);
         var bottom = -34 + 40 * Math.sin(nowAngle);
-        theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
+        theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 10);
     }
 }
 
