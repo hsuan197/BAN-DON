@@ -30,10 +30,10 @@ if(new_h > document.body.clientHeight){
     img_panel.style.width = "180vh";
 }
 
-//preload intro pics
-for (var i = 0; i < 6; i++ ) {
+/* preload intro pics*/
+for (var i = 1; i < 6; i++ ) {
     img = new Image();
-    img.src = "img/food_intro/" + nowFoodId.toString() + ".png";
+    img.src = "img/food_intro/" + i.toString() + ".png";
 }
 
 function rotate(){
