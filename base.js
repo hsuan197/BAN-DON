@@ -141,7 +141,7 @@ $(document).ready(function(){
         $("#red").animate({opacity:"0.7"}, 200);
 
         var img_path = "img/food_intro/" + nowFoodId.toString() + ".png";
-        $("#intro_panel img").attr('src',img_path);
+        $("#intro_panel img").attr('src', img_path);
         $("#intro_panel div").html(foodHtml[nowFoodId]);
 
         $("#intro_panel").css("display","block");
