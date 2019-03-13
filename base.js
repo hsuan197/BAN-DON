@@ -8,8 +8,10 @@ var foodHtml = [
     "<h1>冷盤</h1><h2><br>共七道冷盤，有大肉、烏魚子、蝦棗丸、<br>螺肉、滷豬舌、海蜇花、松阪豬，<br>承裝的七仙女盤，七仙女寓意吉祥，<br>七道食物的烹調方式不同，食材也不重複，<br>考驗總舖師的底蘊。</h2>",
     "<h1>清蒸魚</h1><h2><br>魚象徵著繁榮和盈餘( 年年有魚 )。<br>除夕這一天人們準備除舊迎新，吃團圓飯。<br>家人的團聚往往令一家之主在精神上得到安慰與滿足，<br>老人家眼看兒孫滿堂，一家大小共敘天倫，<br>過去的關懷與撫養子女所付出的心血總算沒有白費，<br>這是何等的幸福。<br>而年輕一輩，<br>也正可以藉此機會向父母的養育之恩表達感激之情。</h2>"
 ];
+var rotateDirection = -1;
 
-/* 調整桌椅大小 */
+
+/* 調整桌椅位置*/
 var img_panel = document.getElementById("panel");
 var statu0Left = "-30vw";
 var stat1Left = "0";
@@ -29,6 +31,40 @@ if(new_h > document.body.clientHeight){
 }
 
 
+function rotate(){
+    var nowAngle;
+    var loopInc;
+    switch(rotateDirection){
+        case 0:
+            nowAngle = 90 * 0.017453293;
+            loopInc = - 0.017453293;
+            break;
+        case 1:
+            nowAngle = 180 * 0.017453293;
+            loopInc = - 0.017453293;
+            break;
+        case 2:
+            nowAngle = 90 * 0.017453293;
+            loopInc = 0.017453293;
+            break;
+        case 3:
+            nowAngle = 0;
+            loopInc = 0.017453293;
+            break;
+        default:
+            return;
+    }
+
+    var theFood = $("#food");
+    for(i = 0; i < 91; i++){
+        nowAngle = nowAngle + loopInc;
+        var left = 32 + 30 * Math.cos(nowAngle);
+        var bottom = -34 + 40 * Math.sin(nowAngle);
+        theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
+    }
+}
+
+
 $(document).ready(function(){
 
     // 進入選菜色頁面按鍵 
@@ -45,80 +81,57 @@ $(document).ready(function(){
 
     });
     
-    
+    //回到主畫面
     $("#bandon").click(()=>{
         if(statu == 1){
             statu = 0;
-            $("#panel").animate({left:statu0Left, bottom:"-20vw"}, 500);
-            
+            $("#panel").animate({left:statu0Left, bottom:"-20vw"}, 500);            
             $("#bandon").animate({ top:"15%", left:"70%", width:"15%"}, 400);
             $("#content").show().animate({opacity:"1", left:"-=10%"}, 400);
-
             $("#panel b").animate({opacity:"0"}, 300).hide(300);   
         }
     });
-    
+
+    //等圖片Load完才會轉上來
+    $("#food").on("load", rotate);
 
     //往右按鍵
     $("#btn_r").click(()=>{
+        //轉出
+        rotateDirection = 0;
+        rotate();
+
+        //準備更換
         if(++nowFoodId > 5){
             nowFoodId = 0;
         }
         var img_path = "img/food_btn/" + nowFoodId.toString() + ".png";
-
         var theFood = $("#food");
 
-        for(i = 90; i > 0; i--){
-            var angle = i * 0.017453293;
-            var left = 32 + 30 * Math.cos(angle);
-            var bottom = -34 + 40 * Math.sin(angle);
-            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
-        }
-
+        //等到轉出的animate結束再換圖片&轉入
         theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
+            rotateDirection = 1;
             theFood.attr('src',img_path);
-            $("#food").ready(function() {
-                console.log(">???");
-                for(i = 180; i > 90; i--){
-                    var angle = i * 0.017453293;
-                    var left = 32 + 30 * Math.cos(angle);
-                    var bottom = -34 + 40 * Math.sin(angle);
-        
-                    theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
-                }
-            });
         });
     });
 
     //往左按鍵
     $("#btn_l").click(()=>{
+        //轉出
+        rotateDirection = 2;
+        rotate();
+
+        //準備更換
         if(--nowFoodId < 0){
             nowFoodId = 5;
         }
         var img_path = "img/food_btn/" + nowFoodId.toString() + ".png";
         var theFood = $("#food");
-        for(i = 90; i < 180; i++){
-            var angle = i * 0.017453293;
-            var left = 32 + 30 * Math.cos(angle);
-            var bottom = -34 + 40 * Math.sin(angle);
-            theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
-        }
-        theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
-            theFood.attr('src',img_path);
-        });
 
+        //等到轉出的animate結束再換圖片&轉入
         theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
+            rotateDirection = 3;
             theFood.attr('src',img_path);
-            $("#food").ready(function() {
-                console.log(">???");
-                for(i = 0; i < 90; i++){
-                    var angle = i * 0.017453293;
-                    var left = 32 + 30 * Math.cos(angle);
-                    var bottom = -34 + 40 * Math.sin(angle);
-        
-                    theFood.animate({left:left.toString() + "%", bottom: bottom.toString() + "%"}, 1);
-                }
-            });
         });
     });
 
