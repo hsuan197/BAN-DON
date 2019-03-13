@@ -109,7 +109,7 @@ $(document).ready(function(){
         var theFood = $("#food");
 
         //等到轉出的animate結束再換圖片&轉入
-        theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
+        theFood.animate({left:"2%", bottom:  "-34%"}, 1, ()=>{
             rotateDirection = 1;
             theFood.attr('src',img_path);
         });
@@ -129,7 +129,7 @@ $(document).ready(function(){
         var theFood = $("#food");
 
         //等到轉出的animate結束再換圖片&轉入
-        theFood.animate({left:"100%", bottom:  "100%"}, 1, ()=>{
+        theFood.animate({left:"62%", bottom:  "-34%"}, 1, ()=>{
             rotateDirection = 3;
             theFood.attr('src',img_path);
         });
